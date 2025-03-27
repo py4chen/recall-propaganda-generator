@@ -114,7 +114,7 @@
 
     function formatWithLineBreaks(text) {
         // 在句號、問號、驚嘆號之後加換行
-        return text.replace(/([。！？])(?!(」|』|”))/g, '$1\n');
+        return text.replace(/([。！？，])(?!(」|』|”))/g, '$1\n');
     }
 
     function decorate(text) {
@@ -134,7 +134,7 @@
         ];
 
         // 處理每段文字：加 emoji、標點換行，再加段落分隔
-        const formatted = parts.map(p => formatWithLineBreaks(decorate(p))).join('\n\n');
+        const formatted = parts.map(p => formatWithLineBreaks(decorate(p))).join('\n');
 
         document.getElementById("output").innerText = formatted;
     }

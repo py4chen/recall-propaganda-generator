@@ -57,3 +57,29 @@ function openModal() {
 function closeModal() {
     document.getElementById("aboutModal").style.display = "none";
 }
+
+
+function toggleProMode() {
+    const isPro = document.getElementById("proToggle").checked;
+    document.body.classList.toggle("pro-mode", isPro);
+
+    // 切換背景顏色
+    if (isPro) {
+        document.body.classList.add("pro-mode");
+    } else {
+        document.body.classList.remove("pro-mode");
+    }
+
+    // 更新語料
+    updateCorpus(isPro);
+}
+
+function updateCorpus(isPro) {
+    const corpus = isPro
+        ? ["Pro 模式的語料 A", "Pro 模式的語料 B"]
+        : ["普通模式的語料 1", "普通模式的語料 2"];
+
+    console.log("目前語料：", corpus);
+    // 這裡你可以把 corpus 傳給你產生文宣的邏輯
+    // 例如 updateGenerator(corpus)
+}

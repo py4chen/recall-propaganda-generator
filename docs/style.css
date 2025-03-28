@@ -62,3 +62,15 @@ button {
     color: #666;
     font-size: 0.95rem;
 }
+
+.output {
+    background: #fff;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    white-space: pre-wrap;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    font-family: "Noto Sans TC", sans-serif;
+}

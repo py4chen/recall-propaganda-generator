@@ -22,47 +22,13 @@
 <textarea id="issueInput" placeholder="請輸入社會議題短語，例如『國會砍預算』"></textarea><br>
 <button onclick="generate()">產生文宣</button>
 <button onclick="copyText()">複製文宣</button>
+<button onclick="downloadAsImage()">下載圖片</button>
+<button onclick="shareToThreads()">分享到 Threads</button>
 <div class="output" id="output"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="data.js"></script>
-<script>
-    function random(arr) {
-        return arr[Math.floor(Math.random() * arr.length)];
-    }
-
-    function formatWithLineBreaks(text) {
-        return text.replace(/([。！？，])(?!(」|』|”))/g, '$1\n');
-    }
-
-    function decorate(text) {
-        return text
-    }
-
-    function generate() {
-        const issue = document.getElementById("issueInput").value.trim();
-        if (!issue) return alert("請輸入一個社會議題短語！");
-
-        const parts = [
-            random(data.memory),
-            random(data.enemy).replaceAll("{議題}", issue),
-            random(data.connection).replaceAll("{議題}", issue),
-            random(data.action).replaceAll("{議題}", issue),
-            random(data.rebuttal).replaceAll("{議題}", issue)
-        ];
-
-        const formatted = parts.map(p => formatWithLineBreaks(decorate(p))).join('\n');
-
-        document.getElementById("output").innerText = formatted;
-    }
-
-    function copyText() {
-        const text = document.getElementById("output").innerText;
-        if (!text) return alert("沒有可以複製的文宣喔！");
-        navigator.clipboard.writeText(text).then(() => {
-            alert("文宣已複製到剪貼簿！");
-        });
-    }
-</script>
+<script src="logic.js"></script>
 </body>
 
 <footer class="footer-badges">

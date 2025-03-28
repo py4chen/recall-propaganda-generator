@@ -52,7 +52,7 @@ function shareToThreads() {
     if (!output) return alert("請先產生文宣再分享！");
 
     const base = "https://www.threads.net/intent/post?text=";
-    const signature = "\n\n藍白下台機 文宣產生器 https://py4chen.github.io/bluewhiteout/";
+    const signature = "\n\n 📣 藍白下台機 文宣產生器 https://py4chen.github.io/bluewhiteout/";
     const fullText = output + signature;
     const encoded = encodeURIComponent(fullText);
 

@@ -35,7 +35,14 @@
 
 <h2 style="text-align: center;">下架藍白</h2>
 <h1 style="text-align: center;">罷免文宣產生器</h1>
-<textarea id="issueInput" placeholder="請輸入社會議題短語，例如『國會砍預算』"></textarea><br>
+<textarea id="issueInput" placeholder="請輸入社會議題短語，例如 國會砍預算"></textarea><br>
+<div style="font-size: 0.85em; color: #666;">
+    懶得打字了：
+    <span class="suggestion" onclick="selectPreset('凍刪預算')">凍刪預算</span>
+    <span class="suggestion" onclick="selectPreset('健保虧損')">健保虧損</span>
+    <span class="suggestion" onclick="selectPreset('台電漲價')">台電漲價</span>
+</div>
+<br>
 <div class="button-group">
     <button class="btn-primary" onclick="generate()">產生文宣</button>
     <button class="btn-secondary" onclick="copyText()">複製文宣</button>

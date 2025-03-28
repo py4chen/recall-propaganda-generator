@@ -27,6 +27,10 @@ function generate() {
     document.getElementById("output").innerText = formatted;
 }
 
+function selectPreset(text) {
+    document.getElementById("issueInput").value = text;
+}
+
 function copyText() {
     const text = document.getElementById("output").innerText;
     if (!text) return alert("沒有可以複製的文宣喔！");

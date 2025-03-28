@@ -8,13 +8,7 @@ body {
 }
 
 body.pro-mode {
-    background-image: repeating-linear-gradient(
-            45deg,
-            rgba(50, 150, 50, 0.08),
-            rgba(50, 150, 50, 0.18) 10px,
-            transparent 10px,
-            transparent 20px
-    );
+    background-color: #d6e9ca;
 }
 
 h1 {

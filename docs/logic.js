@@ -49,9 +49,6 @@ function downloadAsImage() {
 
 function openModal() {
     document.getElementById("aboutModal").style.display = "flex";
-    document.getElementById("aboutModal").addEventListener("click", function (e) {
-        if (e.target === this) closeModal();
-    });
 }
 
 function closeModal() {

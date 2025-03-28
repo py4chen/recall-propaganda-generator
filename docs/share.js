@@ -1,0 +1,25 @@
+const address = "https://py4chen.github.io/bluewhiteout/";
+
+function shareToThreads() {
+    const output = document.getElementById("output").innerText.trim();
+    if (!output) return alert("請先產生文宣再分享！");
+
+    const base = "https://www.threads.net/intent/post?text=";
+    const signature = "\n\n 📢 藍白下台機 文宣產生器 " + address;
+    const fullText = output + signature;
+    const encoded = encodeURIComponent(fullText);
+
+    window.open(base + encoded, '_blank');
+}
+
+function shareToFacebook() {
+    const url = encodeURIComponent(address);
+    const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    window.open(fbShareUrl, '_blank', 'width=600,height=400');
+}
+
+function shareToLine() {
+    const url = encodeURIComponent(address);
+    const lineShareUrl = `https://social-plugins.line.me/lineit/share?url=${url}`;
+    window.open(lineShareUrl, '_blank', 'width=600,height=400');
+}

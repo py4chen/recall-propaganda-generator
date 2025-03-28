@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>藍白下台機</title>
+    <title>下架藍白 - 罷免文宣產生器</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="icon" href="favicon.png" type="image/png">
@@ -18,17 +18,18 @@
 </div>
 
 
-<h1>藍白下台機・罷免文宣產生器</h1>
+<h1>下架藍白・罷免文宣產生器</h1>
 <textarea id="issueInput" placeholder="請輸入社會議題短語，例如『國會砍預算』"></textarea><br>
 <button class="btn-primary" onclick="generate()">產生文宣</button>
-<button onclick="copyText()">複製文宣</button>
-<button onclick="downloadAsImage()">下載圖片</button>
-<button onclick="shareToThreads()">分享到脆</button>
+<button class="btn-secondary" onclick="copyText()">複製文宣</button>
+<button class="btn-secondary" onclick="downloadAsImage()">下載圖片</button>
+<button class="btn-secondary" onclick="shareToThreads()">分享到脆</button>
 <div class="output" id="output"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="data.js"></script>
 <script src="logic.js"></script>
+<script src="share.js"></script>
 </body>
 
 <footer class="footer-badges">
@@ -39,9 +40,37 @@
         🚛 <span class="prefix">譴責抵制</span> <strong>罷綠快車</strong>
     </a>
 
+    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5em; margin-top: 1em;">
+        <span style="font-size: 0.8em; color: #666;"> 分享該產生器至</span>
+        <a href="#" onclick="shareToFacebook()" title="分享到 Facebook" style="color: #3b5998; font-size: 1.5em;">
+            <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="#" onclick="shareToLine()" title="分享到 Line" style="color: #06C755; font-size: 1.5em;">
+            <i class="fab fa-line"></i>
+        </a>
+    </div>
+
     <p style="font-size: 0.8em; text-align: center; margin-top: 2em; color: #666;">
-        產生罷免文宣是公民的權利，也是<strong>更大的民主</strong>力量的展現。
+        產生罷免文宣是公民的權利</br> 也是<strong>更大的民主</strong>力量的展現
+        </br>
+        <a href="#" onclick="openModal()">關於我</a>
     </p>
+
+    <div id="aboutModal" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); z-index: 1000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 1.5em; border-radius: 10px; min-width: 200px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+            <h2 style="color: darkgreen; font-size: 1.2em; margin-bottom: 0.5em;">
+                可疑！作者是不是網軍？
+            </h2>
+            <p style="font-size: 1em; color: dimgray;">
+                ✋ 作者為公民，自發性參與，絕對與任何<strong>政黨</strong>無關，純粹以促進<strong>民主進步</strong>為目標。
+                <br>
+                （括號記得刪，一則1000）
+            </p>
+            <button class="modal-close-btn" onclick="closeModal()">關閉</button>
+        </div>
+    </div>
+
 </footer>
 
 </html>

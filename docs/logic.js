@@ -47,14 +47,13 @@ function downloadAsImage() {
     });
 }
 
-function shareToThreads() {
-    const output = document.getElementById("output").innerText.trim();
-    if (!output) return alert("請先產生文宣再分享！");
+function openModal() {
+    document.getElementById("aboutModal").style.display = "flex";
+    document.getElementById("aboutModal").addEventListener("click", function (e) {
+        if (e.target === this) closeModal();
+    });
+}
 
-    const base = "https://www.threads.net/intent/post?text=";
-    const signature = "\n\n 📣 藍白下台機 文宣產生器 https://py4chen.github.io/bluewhiteout/";
-    const fullText = output + signature;
-    const encoded = encodeURIComponent(fullText);
-
-    window.open(base + encoded, '_blank');
+function closeModal() {
+    document.getElementById("aboutModal").style.display = "none";
 }

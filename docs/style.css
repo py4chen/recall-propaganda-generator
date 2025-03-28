@@ -84,7 +84,6 @@ button {
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease;
-    margin-bottom: 0.5em
 }
 
 .btn-primary:hover {
@@ -100,11 +99,15 @@ button {
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease;
-    margin-bottom: 0.5em
 }
 
 .btn-secondary:hover {
     background-color: darkgray;
+}
+
+.button-group {
+    display: flex;
+    gap: 0.5em;
 }
 
 .modal-close-btn {

@@ -20,10 +20,12 @@
 
 <h1>下架藍白・罷免文宣產生器</h1>
 <textarea id="issueInput" placeholder="請輸入社會議題短語，例如『國會砍預算』"></textarea><br>
-<button class="btn-primary" onclick="generate()">產生文宣</button>
-<button class="btn-secondary" onclick="copyText()">複製文宣</button>
-<button class="btn-secondary" onclick="downloadAsImage()">下載圖片</button>
-<button class="btn-secondary" onclick="shareToThreads()">分享到脆</button>
+<div class="button-group">
+    <button class="btn-primary" onclick="generate()">產生文宣</button>
+    <button class="btn-secondary" onclick="copyText()">複製文宣</button>
+    <button class="btn-secondary" onclick="downloadAsImage()">下載圖片</button>
+    <button class="btn-secondary" onclick="shareToThreads()">分享到脆</button>
+</div>
 <div class="output" id="output"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>

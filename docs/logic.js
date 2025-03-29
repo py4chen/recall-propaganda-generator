@@ -55,6 +55,15 @@ function closeModal() {
     document.getElementById("aboutModal").style.display = "none";
 }
 
+function openLangModal() {
+    document.getElementById("aboutLangModal").style.display = "flex";
+}
+
+function closeLangModal() {
+    document.getElementById("aboutLangModal").style.display = "none";
+}
+
+
 
 function toggleProMode() {
     const isPro = document.getElementById("proToggle").checked;

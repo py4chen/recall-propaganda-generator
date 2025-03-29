@@ -23,3 +23,7 @@ function shareToLine() {
     const lineShareUrl = `https://social-plugins.line.me/lineit/share?url=${url}`;
     window.open(lineShareUrl, '_blank', 'width=600,height=400');
 }
+
+function showDcardWarning() {
+    alert("要確欸？低卡都藍白紅網軍 🥴");
+}

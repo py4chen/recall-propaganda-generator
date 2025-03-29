@@ -27,10 +27,6 @@ function generate() {
     document.getElementById("output").innerText = formatted;
 }
 
-function selectPreset(text) {
-    document.getElementById("issueInput").value = text;
-}
-
 function copyText() {
     const text = document.getElementById("output").innerText;
     if (!text) return alert("沒有可以複製的文宣喔！");
@@ -64,13 +60,15 @@ function toggleProMode() {
     const isPro = document.getElementById("proToggle").checked;
     document.body.classList.toggle("pro-mode", isPro);
 
-    // 切換背景顏色
     if (isPro) {
         document.body.classList.add("pro-mode");
     } else {
         document.body.classList.remove("pro-mode");
     }
 
-    // 更新語料
     loadCorpus(isPro);
+}
+
+function selectPreset(text) {
+    document.getElementById("issueInput").value = text;
 }

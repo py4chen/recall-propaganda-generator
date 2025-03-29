@@ -19,7 +19,7 @@
   font-family: 'Segoe UI Rounded', 'Quicksand', 'Nunito', 'sans-serif';
   letter-spacing: 0.5px;
   color: darkgreen;
-">飛出來</span>
+">強化民主火力</span>
     <label class="switch">
         <input type="checkbox" id="proToggle" onchange="toggleProMode()">
         <span class="slider"></span>
@@ -37,10 +37,9 @@
 <h1 style="text-align: center;">罷免文宣產生器</h1>
 <textarea id="issueInput" placeholder="請輸入社會議題短語，例如 國會砍預算"></textarea><br>
 <div style="font-size: 0.85em; color: #666;">
-    懶得打字了：
-    <span class="suggestion" onclick="selectPreset('凍刪預算')">凍刪預算</span>
-    <span class="suggestion" onclick="selectPreset('健保虧損')">健保虧損</span>
-    <span class="suggestion" onclick="selectPreset('台電漲價')">台電漲價</span>
+    <div id="suggestionBox" style="font-size: 0.85em; color: #666;">
+        點選議題：
+    </div>
 </div>
 <br>
 <div class="button-group">
@@ -66,7 +65,7 @@
     </a>
 
     <div style="display: flex; align-items: center; justify-content: center; gap: 0.5em; margin-top: 1em;">
-        <span style="font-size: 0.8em; color: #666;"> 分享該產生器至</span>
+        <span style="font-size: 0.8em; color: #666;"> 分享產生器至</span>
         <a href="#" onclick="shareToFacebook()" title="分享到 Facebook" style="color: #3b5998; font-size: 1.5em;">
             <i class="fab fa-facebook-square"></i>
         </a>
@@ -78,6 +77,7 @@
     <p style="font-size: 0.8em; text-align: center; margin-top: 2em; color: #666;">
         產生罷免文宣是公民的權利</br> 也是<strong>更大的民主</strong>力量的展現
         </br>
+        版本: <span id="version">內部測試</span>
         <a href="#" onclick="openModal()">關於我</a>
     </p>
 
@@ -88,10 +88,10 @@
                 可疑！作者是誰？
             </h2>
             <p style="font-size: 1em; color: dimgray;">
-                ✋ 作者為<strong>愛台灣</strong>的公民，<br>自發性參與，<br> 絕對與任何<strong>政黨</strong>無關，<br>純粹以促進<strong>民主進步</strong>為目標。
+                ✋ 我是一個<strong>愛台灣</strong>的台灣人，<br>自發性參與公民活動，<br> 絕對與任何<strong>政黨</strong>無關，<br>純粹以促進<strong>民主進步</strong>為目標。
                 <br>
             </p>
-            <p style="font-size: 0.7em; color: whitesmoke">（括號記得刪，一則1000）</p>
+            <p style="font-size: 0.7em; color: white">（括號記得刪，一則1000）</p>
             <button class="modal-close-btn" onclick="closeModal()">關閉</button>
         </div>
     </div>

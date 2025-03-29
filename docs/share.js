@@ -1,11 +1,11 @@
-const address = "https://py4chen.github.io/bluewhiteout/";
+const address = "https://ba.pychen.one/";
 
 function shareToThreads() {
     const output = document.getElementById("output").innerText.trim();
     if (!output) return alert("請先產生文宣再分享！");
 
     const base = "https://www.threads.net/intent/post?text=";
-    const signature = "\n\n 📢 下架藍白·罷免文宣產生器 " + address;
+    const signature = "\n\n 📢 下架藍白·罷免文宣產生器·一起守護民主 " + address;
     const fullText = output + signature;
     const encoded = encodeURIComponent(fullText);
 

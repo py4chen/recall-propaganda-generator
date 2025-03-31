@@ -217,7 +217,7 @@ button {
 }
 
 input:checked + .slider {
-    background-color: #66bb6a; /* 綠色表示開啟 */
+    background-color: #339B7E; /* 綠色表示開啟 */
 }
 
 input:checked + .slider::before {

@@ -64,15 +64,14 @@ function closeLangModal() {
 }
 
 
-
-function toggleProMode() {
-    const isPlus = document.getElementById("proToggle").checked;
-    document.body.classList.toggle("plus-mode", isPlus);
+function toggleProMode(bodyColorToken) {
+    const isPlus = document.getElementById("plusToggle").checked;
+    document.body.classList.toggle(bodyColorToken, isPlus);
 
     if (isPlus) {
-        document.body.classList.add("plus-mode");
+        document.body.classList.add(bodyColorToken);
     } else {
-        document.body.classList.remove("pro-mode");
+        document.body.classList.remove(bodyColorToken);
     }
 
     loadCorpus(isPlus);

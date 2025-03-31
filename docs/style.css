@@ -7,11 +7,21 @@ body {
     margin: auto;
 }
 
-body.pro-mode {
+body.plus-mode {
     background-image: repeating-linear-gradient(
             45deg,
             rgba(50, 150, 50, 0.08),
             rgba(50, 150, 50, 0.18) 10px,
+            transparent 10px,
+            transparent 20px
+    );
+}
+
+body.plus-mode-cyan {
+    background-image: repeating-linear-gradient(
+            135deg,
+            rgba(100, 200, 200, 0.08),
+            rgba(100, 200, 200, 0.18) 10px,
             transparent 10px,
             transparent 20px
     );

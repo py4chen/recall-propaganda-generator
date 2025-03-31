@@ -48,7 +48,7 @@ async function loadAllCorpus(isBlueWhiteOut) {
 
 async function loadCorpus(isPlus) {
     try {
-        currentCorpus = isPlus ? allCorpus["normal"] : allCorpus["plus"];
+        currentCorpus = isPlus ? allCorpus["plus"] : allCorpus["normal"];
         console.log(`successfully loaded corpus for plus ${isPlus}`);
     } catch (err) {
         console.error("failed to load corpus", err);

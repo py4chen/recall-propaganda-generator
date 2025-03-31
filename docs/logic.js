@@ -66,16 +66,16 @@ function closeLangModal() {
 
 
 function toggleProMode() {
-    const isPro = document.getElementById("proToggle").checked;
-    document.body.classList.toggle("pro-mode", isPro);
+    const isPlus = document.getElementById("proToggle").checked;
+    document.body.classList.toggle("plus-mode", isPlus);
 
-    if (isPro) {
-        document.body.classList.add("pro-mode");
+    if (isPlus) {
+        document.body.classList.add("plus-mode");
     } else {
         document.body.classList.remove("pro-mode");
     }
 
-    loadCorpus(isPro);
+    loadCorpus(isPlus);
 }
 
 function selectPreset(text) {

@@ -1,19 +1,55 @@
 let currentCorpus = {};
 
+const allCorpus = {};
+const categories = ['memory', 'enemy', 'connection', 'action', 'rebuttal'];
+
 // init
-window.addEventListener("DOMContentLoaded", () => {
-    loadCorpus(false);
+window.addEventListener("DOMContentLoaded", async () => {
+    isBlueWhiteOut = window.location.pathname.includes("bluewhiteout");
+    await loadAllCorpus(isBlueWhiteOut)
+    loadCorpus(false)
     loadSuggestion()
     loadMetadata()
 });
 
-async function loadCorpus(isPro) {
-    const file = isPro ? "data/pro.json" : "data/normal.json";
+async function loadAllCorpus(isBlueWhiteOut) {
+    const dir = isBlueWhiteOut ? "corpus_bluewhiteout" : "corpus_greenout";
     try {
-        const res = await fetch(file);
-        const data = await res.json();
-        currentCorpus = data;
-        console.log("load corpus from ", file);
+        const res = await fetch(`${dir}/filelist.json`);
+        const filelist = await res.json();
+
+        for (const category in filelist) {
+            allCorpus[category] = {
+                memory: [],
+                enemy: [],
+                connection: [],
+                action: [],
+                rebuttal: []
+            };
+
+            const fileNames = filelist[category];
+
+            for (const filename of fileNames) {
+                const url = `${dir}/${filename}`;
+                const fileRes = await fetch(url);
+                const data = await fileRes.json();
+
+                for (const key of categories) {
+                    if (Array.isArray(data[key])) {
+                        allCorpus[category][key].push(...data[key]);
+                    }
+                }
+            }
+        }
+    } catch (err) {
+        console.error("failed to load all corpus, ", err);
+    }
+}
+
+async function loadCorpus(isPlus) {
+    try {
+        currentCorpus = isPlus ? allCorpus["normal"] : allCorpus["plus"];
+        console.log(`successfully loaded corpus for plus ${isPlus}`);
     } catch (err) {
         console.error("failed to load corpus", err);
     }

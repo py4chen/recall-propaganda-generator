@@ -1,14 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0;url=zh.html">
-    <script>
-        window.location.href = "bluewhiteout.html";
-    </script>
+    <title>你想罷免誰？罷免文宣產生器 - 網軍帶風向小幫手</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: "Segoe UI", "Helvetica", sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: whitesmoke;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1em;
+            margin-bottom: 1em;
+        }
+
+        .choice-btn {
+            padding: 0.6em 1.2em;
+            font-size: 1em;
+            border-radius: 999px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-bluegreen {
+            background-color: lightcyan;
+        }
+
+        .btn-green {
+            background-color: lightgreen;
+        }
+
+        .choice-btn:hover {
+            filter: brightness(0.95);
+        }
+
+        .notice {
+            font-size: 0.9em;
+            color: #444;
+        }
+
+        .countdown {
+            font-weight: bold;
+            color: #d32f2f;
+            font-size: 1.1em;
+        }
+    </style>
 </head>
 <body>
-正在導向至罷藍白頁面...
+
+<h2>罷免文宣產生器</h2>
+<h1>你想罷藍白？還是罷綠委？</h1>
+
+<div class="btn-group">
+    <button class="choice-btn btn-green" onclick="choose('bluewhiteout')">罷藍白</button>
+    <button class="choice-btn btn-bluegreen" onclick="choose('greenout')">罷綠委</button>
+</div>
+
+<div class="notice">
+    7 秒不出聲？直接幫你選擇罷藍白！<span class="countdown" id="count">7</span>
+</div>
+
+<script>
+    let hasChosen = false;
+    let count = 7;
+
+    function choose(page) {
+        hasChosen = true;
+        window.location.href = `${page}.html`;
+    }
+
+    const countdownEl = document.getElementById('count');
+    const timer = setInterval(() => {
+        if (hasChosen) {
+            clearInterval(timer);
+            return;
+        }
+        count--;
+        countdownEl.textContent = count;
+        if (count <= 0) {
+            clearInterval(timer);
+            window.location.href = 'bluewhiteout.html';
+        }
+    }, 1000);
+</script>
+
 </body>
 </html>

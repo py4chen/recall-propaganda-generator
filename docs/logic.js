@@ -81,3 +81,7 @@ function toggleProMode() {
 function selectPreset(text) {
     document.getElementById("issueInput").value = text;
 }
+
+function switchPolitics(p) {
+    window.location.href = `${p}.html`;
+}

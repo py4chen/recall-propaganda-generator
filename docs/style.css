@@ -121,8 +121,23 @@ button {
     gap: 0.5em;
 }
 
-.modal-close-btn {
+.modal-close-btn-green {
     background-color: darkgreen;
+}
+
+.modal-close-btn-green:hover {
+    background-color: green;
+}
+
+.modal-close-btn-cyan {
+    background-color: #008B8B;
+}
+
+.modal-close-btn-cyan:hover {
+    background-color: #429E9D;
+}
+
+.modal-close-btn {
     color: white;
     border: none;
     border-radius: 20px;
@@ -135,7 +150,6 @@ button {
 }
 
 .modal-close-btn:hover {
-    background-color: green;
     transform: scale(1.05);
 }
 

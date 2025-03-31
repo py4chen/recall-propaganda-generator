@@ -11,27 +11,27 @@
 </head>
 <body>
 
-<div style="position: absolute; top: 1em; left: 1em;">
-    <span style="
-  margin-left: 0.5em;
-  font-size: 0.95em;
-  font-weight: bold;
-  font-family: 'Segoe UI Rounded', 'Quicksand', 'Nunito', 'sans-serif';
-  letter-spacing: 0.5px;
-  color: darkgreen;
-">開啟民主火力</span>
+<div style="position: absolute; top: 1em; left: 1em; display: flex; align-items: center; gap: 0.5em;">
+  <span style="
+    font-size: 0.95em;
+    font-weight: bold;
+    font-family: 'Segoe UI Rounded', 'Quicksand', 'Nunito', 'sans-serif';
+    letter-spacing: 0.5px;
+    color: darkgreen;
+  ">開啟民主火力</span>
+
     <label class="switch">
         <input type="checkbox" id="proToggle" onchange="toggleProMode()">
         <span class="slider"></span>
     </label>
 </div>
 
-<div style="position: absolute; top: 1em; right: 1em; z-index: 1000; display: flex; align-items: center; gap: 0.8em;">
+<div style="position: absolute; top: 1em; right: 1em; display: flex; align-items: center; gap: 0.5em;">
 
     <button
             onclick="switchPolitics('greenout')"
             style="
-    padding: 0.5em 1em;
+    padding: 0.2em 1em;
     font-size: 0.9em;
     border-radius: 999px;
     background-color: #f4f4f4;
@@ -78,16 +78,7 @@
             純粹以促進<strong>民主進步</strong>為目標<br>絕對與任何<strong>政黨</strong>無關。<br>
         </p>
         <p style="font-size: 0.7em; color: white">（括號記得刪，一則1000）</p>
-        <div id="bmc-container" style="width: 120px; height: 40px;">
-            <button class="modal-close-btn" onclick="closeModal()">關閉</button>
-
-            <!--            <script type="text/javascript"-->
-            <!--                    src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"-->
-            <!--                    data-name="bmc-button" data-slug="py4chen" data-color="#FFDD00"-->
-            <!--                    data-emoji="" data-font="Inter" data-text="打賞"-->
-            <!--                    data-outline-color="#000000" data-font-color="#000000"-->
-            <!--                    data-coffee-color="#ffffff"></script>-->
-        </div>
+        <button class="modal-close-btn" onclick="closeModal()">關閉</button>
     </div>
 </div>
 

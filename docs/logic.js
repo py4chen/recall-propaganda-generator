@@ -1,3 +1,5 @@
+const issueKey = "{議題}"
+
 function random(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -14,13 +16,9 @@ function generate() {
     const issue = document.getElementById("issueInput").value.trim();
     if (!issue) return alert("請輸入一個社會議題短語！");
 
-    const parts = [
-        random(currentCorpus.memory),
-        random(currentCorpus.enemy).replaceAll("{議題}", issue),
-        random(currentCorpus.connection).replaceAll("{議題}", issue),
-        random(currentCorpus.action).replaceAll("{議題}", issue),
-        random(currentCorpus.rebuttal).replaceAll("{議題}", issue)
-    ];
+    const parts = categories.map(cat =>
+        random(currentCorpus[cat]).replaceAll(issueKey, issue)
+    );
 
     const formatted = parts.map(p => formatWithLineBreaks(decorate(p))).join('\n');
 

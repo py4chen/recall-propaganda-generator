@@ -1,7 +1,7 @@
 let currentCorpus = {};
 
 const allCorpus = {};
-const categories = ['memory', 'enemy', 'connection', 'action', 'rebuttal'];
+let categories = [];
 
 // init
 window.addEventListener("DOMContentLoaded", async () => {
@@ -15,19 +15,17 @@ window.addEventListener("DOMContentLoaded", async () => {
 async function loadAllCorpus(isBlueWhiteOut) {
     const dir = isBlueWhiteOut ? "corpus_bluewhiteout" : "corpus_greenout";
     try {
-        const res = await fetch(`${dir}/filelist.json`);
-        const filelist = await res.json();
+        const res = await fetch(`${dir}/config.json`);
+        const config = await res.json();
+        categories = config["categories"]
 
-        for (const category in filelist) {
-            allCorpus[category] = {
-                memory: [],
-                enemy: [],
-                connection: [],
-                action: [],
-                rebuttal: []
-            };
+        for (const mode in config["files"]) {
+            allCorpus[mode] = {};
+            for (const key of categories) {
+                allCorpus[mode][key] = [];
+            }
 
-            const fileNames = filelist[category];
+            const fileNames = config["files"][mode];
 
             for (const filename of fileNames) {
                 const url = `${dir}/${filename}`;
@@ -36,7 +34,7 @@ async function loadAllCorpus(isBlueWhiteOut) {
 
                 for (const key of categories) {
                     if (Array.isArray(data[key])) {
-                        allCorpus[category][key].push(...data[key]);
+                        allCorpus[mode][key].push(...data[key]);
                     }
                 }
             }

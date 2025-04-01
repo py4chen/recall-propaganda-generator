@@ -25,9 +25,9 @@ function shareToLine() {
 }
 
 function showDcardWarning() {
-    alert("要確欸？低卡時事版都藍白紅戰國策網軍 🥴 \n你一分享過去，他們就急了！");
+    alert("要確欸？低卡時事版都是藍白戰國策網軍 🥴 \n你要是一分享過去，他們就急了！");
 }
 
 function showRedditWarning() {
-    alert("要確欸？紅迪Taiwanese板都綠營側翼網軍 🥴 \n你一分享過去，他們就急了！");
+    alert("要確欸？紅迪Taiwanese板都是綠營側翼網軍 🥴 \n你要是一分享過去，他們就急了！");
 }

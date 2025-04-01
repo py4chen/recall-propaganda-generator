@@ -1,8 +1,13 @@
 {
   "categories": [
+    "value",
+    "behavior",
+    "deception",
+    "action"
   ],
   "files": {
     "normal": [
+      "kcfor2016.json"
     ],
     "plus": [
     ]

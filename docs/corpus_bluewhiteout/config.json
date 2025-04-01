@@ -7,10 +7,10 @@
     "rebuttal"
   ],
   "files": {
-    "normal": [
-      "normal.json"
+    "撲馬": [
+      "puma_202503_v2.json"
     ],
-    "plus": [
+    "其他": [
       "plus.json"
     ]
   }

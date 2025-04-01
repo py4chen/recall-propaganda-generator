@@ -7,25 +7,37 @@ let categories = [];
 window.addEventListener("DOMContentLoaded", async () => {
     isBlueWhiteOut = window.location.pathname.includes("bluewhiteout");
     await loadAllCorpus(isBlueWhiteOut)
-    loadCorpus(false)
+    loadCorpus("all")
     loadSuggestion()
     loadMetadata()
 });
 
 async function loadAllCorpus(isBlueWhiteOut) {
     const dir = isBlueWhiteOut ? "corpus_bluewhiteout" : "corpus_greenout";
+    const selector = document.getElementById("corpusSelector");
+    selector.innerHTML = "";
     try {
         const res = await fetch(`${dir}/config.json`);
         const config = await res.json();
         categories = config["categories"]
 
-        for (const mode in config["files"]) {
-            allCorpus[mode] = {};
+        // all options
+        allCorpus["all"] = {};
+        for (const key of categories) {
+            allCorpus["all"][key] = [];
+        }
+        const optionAll = document.createElement("option");
+        optionAll.value = "all";
+        optionAll.textContent = "全部都要";
+        selector.appendChild(optionAll);
+
+        for (const name in config["files"]) {
+            allCorpus[name] = {};
             for (const key of categories) {
-                allCorpus[mode][key] = [];
+                allCorpus[name][key] = [];
             }
 
-            const fileNames = config["files"][mode];
+            const fileNames = config["files"][name];
 
             for (const filename of fileNames) {
                 const url = `${dir}/${filename}`;
@@ -34,23 +46,25 @@ async function loadAllCorpus(isBlueWhiteOut) {
 
                 for (const key of categories) {
                     if (Array.isArray(data[key])) {
-                        allCorpus[mode][key].push(...data[key]);
+                        allCorpus[name][key].push(...data[key]);
+                        allCorpus["all"][key].push(...data[key]);
                     }
                 }
             }
+
+            const option = document.createElement("option");
+            option.value = name;
+            option.textContent = name;
+            selector.appendChild(option);
         }
     } catch (err) {
         console.error("failed to load all corpus, ", err);
     }
 }
 
-async function loadCorpus(isPlus) {
-    try {
-        currentCorpus = isPlus ? allCorpus["plus"] : allCorpus["normal"];
-        console.log(`successfully loaded corpus for plus ${isPlus}`);
-    } catch (err) {
-        console.error("failed to load corpus", err);
-    }
+function loadCorpus(name) {
+    currentCorpus = allCorpus[name];
+    console.log("switch corpus to", name);
 }
 
 let presetSuggestions = []

@@ -8,21 +8,13 @@
     <link rel="icon" href="favicon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body class="cyan">
 
 <div style="position: absolute; top: 1em; left: 1em; display: flex; align-items: center; gap: 0.5em;">
-  <span style="
-    font-size: 0.95em;
-    font-weight: bold;
-    font-family: 'Segoe UI Rounded', 'Quicksand', 'Nunito', 'sans-serif';
-    letter-spacing: 0.5px;
-    color: #008B8B;
-  ">開啟民主火力</span>
-
-    <label class="switch">
-        <input type="checkbox" id="plusToggle" onchange="toggleProMode('plus-mode-cyan')">
-        <span class="slider"></span>
-    </label>
+    <label for="corpusSelector" style="font-weight: bold; color: darkgreen;">選擇風格：</label>
+    <select id="corpusSelector" onchange="loadCorpus(this.value)">
+        <option disabled selected>載入中...</option>
+    </select>
 </div>
 
 <div style="position: absolute; top: 1em; right: 1em; display: flex; align-items: center; gap: 0.5em;">
@@ -74,7 +66,7 @@
             可疑！作者是誰？
         </h2>
         <p style="font-size: 1em; color: dimgray;">
-            ✋ 我是一個<strong>愛台灣</strong>的台灣人，<br>承擔<strong>國民</strong>責任，<br>我自發性參與公民活動，<br>
+            ✋ 我是一個愛台灣的台灣人，<br>作為<strong>國民</strong>，<br>我自發性參與公民活動，<br> 沒有政<strong>黨</strong>立場，<br>
             純粹以促進<strong>民眾</strong>團結為目標<br>絕對與任何政<strong>黨</strong>無關。<br>
         </p>
         <p style="font-size: 0.7em; color: white">（括號記得刪，一則1000）</p>

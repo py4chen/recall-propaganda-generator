@@ -61,20 +61,6 @@ function closeLangModal() {
     document.getElementById("aboutLangModal").style.display = "none";
 }
 
-
-function toggleProMode(bodyColorToken) {
-    const isPlus = document.getElementById("plusToggle").checked;
-    document.body.classList.toggle(bodyColorToken, isPlus);
-
-    if (isPlus) {
-        document.body.classList.add(bodyColorToken);
-    } else {
-        document.body.classList.remove(bodyColorToken);
-    }
-
-    loadCorpus(isPlus);
-}
-
 function selectPreset(text) {
     document.getElementById("issueInput").value = text;
 }

@@ -8,11 +8,14 @@
   ],
   "files": {
     "撲馬": [
-      "fb_puma_202503_v2.json"
+      "puma_202503_v2.json"
     ],
     "阿苗": [
-      "fb_miaopoya_202409_202503.json",
-      "new_miaopoya_202405"
+      "miaopoya_202409_202503.json",
+      "news_miaopoya_202405.json"
+    ],
+    "James謝": [
+      "jameshsieh_202503.json"
     ],
     "其他": [
       "plus.json"

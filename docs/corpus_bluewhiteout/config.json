@@ -8,14 +8,14 @@
   ],
   "files": {
     "P先生": [
-      "puma_202503_v2.json"
+      "p_202503_v2.json"
     ],
     "M女士": [
-      "miaopoya_202409_202503.json",
-      "news_miaopoya_202405.json"
+      "m_202409_202503.json",
+      "news_m_202405.json"
     ],
     "J先生": [
-      "jameshsieh_202503.json"
+      "j_202503.json"
     ]
   }
 }

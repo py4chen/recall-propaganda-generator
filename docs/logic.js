@@ -5,7 +5,7 @@ function random(arr) {
 }
 
 function formatWithLineBreaks(text) {
-    return text.replace(/([。！？，])(?!(」|』|”))/g, '$1\n');
+    return text.replace(/([。！？，；])(?!(」|』|”))/g, '$1\n');
 }
 
 function decorate(text) {

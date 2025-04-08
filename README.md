@@ -2,8 +2,10 @@
 
 本產生器可以快速產生罷免文宣的內容。(適用於[2025年中華民國大罷免潮](https://zh.wikipedia.org/wiki/2025%E5%B9%B4%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%A4%A7%E7%BD%B7%E5%85%8D%E6%BD%AE))。
 
-> A pure web toolkit that generates recall campaign texts for Taiwan's 2025 mass recall movement, <br>
-> based on ideological framing, emotional appeal, and political stances 
+> A pure web toolkit that generates recall campaign propaganda for Taiwan's 2025 mass recall movement, <br>
+> based on ideological framing, emotional appeal, and political stances. <br>
+> The corpus is based on the public statements from Taiwanese political influencers, <br>
+> rephrased and templated via ChatGPT.
 
 工具網址：https://ba.pychen.one/
 

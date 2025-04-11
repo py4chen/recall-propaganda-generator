@@ -17,8 +17,11 @@
     "J某人": [
       "j_202503.json"
     ],
-    "防衛型民主": [
+    "防衛型民主說": [
       "defensive_democracy.json"
+    ],
+    "二元對立說": [
+      "false_dilemma.json"
     ]
   }
 }

@@ -5,7 +5,7 @@
     "deception",
     "action"
   ],
-  "files": {
+  "styles": {
     "阿蔥": [
       "h_202502_202503.json",
       "kcfor2016.json"
@@ -13,11 +13,25 @@
     "阿鳳": [
       "c_202502_202503.json"
     ],
-    "客客雙": [
+    "阿客": [
       "s_20250320_20250409.json"
     ],
     "程序正義說": [
       "procedural_justice.json"
     ]
+  },
+  "template_styles": {
+    "朋友說": {
+      "template": "friend.tpl",
+      "data": "friend.json",
+      "categories": [
+        "friend",
+        "activity",
+        "time",
+        "cold",
+        "personality",
+        "slogan"
+      ]
+    }
   }
 }

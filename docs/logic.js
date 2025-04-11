@@ -16,13 +16,20 @@ function generate() {
     const issue = document.getElementById("issueInput").value.trim();
     if (!issue) return alert("請輸入一個社會議題短語！");
 
-    const parts = categories.map(cat =>
-        random(currentCorpus[cat]).replaceAll(issueKey, issue)
-    );
-
-    const formatted = parts.map(p => formatWithLineBreaks(decorate(p))).join('\n');
-
-    document.getElementById("output").innerText = formatted;
+    if (currentStyle in allTemplates) {
+        const template = allTemplates[currentStyle]
+        const formatted = template.replace(/\{([^}]+)\}/g, (match, key) => {
+            const values = currentCorpus[key];
+            return Array.isArray(values) ? random(values) : match;
+        }).replaceAll(issueKey, issue);
+        document.getElementById("output").innerText = formatted;
+    } else {
+        const parts = allCategories[currentStyle].map(cat =>
+            random(currentCorpus[cat]).replaceAll(issueKey, issue)
+        );
+        const formatted = parts.map(p => formatWithLineBreaks(decorate(p))).join('\n');
+        document.getElementById("output").innerText = formatted;
+    }
 }
 
 function copyText() {

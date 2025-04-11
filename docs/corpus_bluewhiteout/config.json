@@ -6,7 +6,7 @@
     "action",
     "rebuttal"
   ],
-  "files": {
+  "styles": {
     "阿馬": [
       "p_202503_v2.json"
     ],
@@ -23,5 +23,19 @@
     "二元對立說": [
       "false_dilemma.json"
     ]
+  },
+  "template_styles": {
+    "朋友說": {
+      "template": "friend.tpl",
+      "data": "friend.json",
+      "categories": [
+        "friend",
+        "activity",
+        "time",
+        "cold",
+        "personality",
+        "slogan"
+      ]
+    }
   }
 }

@@ -1,7 +1,9 @@
 let currentCorpus = {};
+let currentStyle = ""
 
 const allCorpus = {};
-let categories = [];
+const allTemplates = {}
+const allCategories = {};
 
 // init
 window.addEventListener("DOMContentLoaded", async () => {
@@ -19,25 +21,27 @@ async function loadAllCorpus(isBlueWhiteOut) {
     try {
         const res = await fetch(`${dir}/config.json`);
         const config = await res.json();
-        categories = config["categories"]
+        const categories = config["categories"]
 
         // all options
         allCorpus["all"] = {};
+        allCategories["all"] = categories;
         for (const key of categories) {
             allCorpus["all"][key] = [];
         }
         const optionAll = document.createElement("option");
         optionAll.value = "all";
-        optionAll.textContent = "全部都要";
+        optionAll.textContent = "綜合";
         selector.appendChild(optionAll);
 
-        for (const name in config["files"]) {
+        for (const name in config["styles"]) {
             allCorpus[name] = {};
             for (const key of categories) {
                 allCorpus[name][key] = [];
             }
+            allCategories[name] = categories
 
-            const fileNames = config["files"][name];
+            const fileNames = config["styles"][name];
 
             for (const filename of fileNames) {
                 const url = `${dir}/${filename}`;
@@ -57,6 +61,36 @@ async function loadAllCorpus(isBlueWhiteOut) {
             option.textContent = name;
             selector.appendChild(option);
         }
+
+        for (const name in config["template_styles"]) {
+            const cats = config["template_styles"][name]["categories"];
+            allCorpus[name] = {};
+            allCategories[name] = cats
+            for (const key of cats) {
+                allCorpus[name][key] = [];
+            }
+
+            const templateFile = config["template_styles"][name]["template"];
+            const tplURL = `${dir}/${templateFile}`;
+            const tplRes = await fetch(tplURL);
+            const tpl = await tplRes.text()
+            allTemplates[name] = tpl;
+
+            const dataFile = config["template_styles"][name]["data"];
+            const dataURL = `${dir}/${dataFile}`;
+            const dataRes = await fetch(dataURL);
+            const data = await dataRes.json();
+
+            for (const key of cats) {
+                if (Array.isArray(data[key])) {
+                    allCorpus[name][key].push(...data[key]);
+                }
+            }
+            const option = document.createElement("option");
+            option.value = name;
+            option.textContent = name;
+            selector.appendChild(option);
+        }
     } catch (err) {
         console.error("failed to load all corpus, ", err);
     }
@@ -64,6 +98,7 @@ async function loadAllCorpus(isBlueWhiteOut) {
 
 function loadCorpus(name) {
     currentCorpus = allCorpus[name];
+    currentStyle = name;
     console.log("switch corpus to", name);
 }
 
@@ -95,8 +130,6 @@ async function loadSuggestion() {
         }
     });
 }
-
-let metadata = {}
 
 async function loadMetadata() {
     const file = "metadata.json";

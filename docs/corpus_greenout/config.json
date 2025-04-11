@@ -21,7 +21,7 @@
     ]
   },
   "template_styles": {
-    "朋友說": {
+    "脆的朋友說": {
       "template": "friend.tpl",
       "data": "friend.json",
       "categories": [

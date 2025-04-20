@@ -5,7 +5,7 @@ function shareToThreads() {
     if (!output) return alert("請先產生文宣再分享！");
 
     const base = "https://www.threads.net/intent/post?text=";
-    const signature = "\n\n 📢 罷免文宣產生器·下架不適任立委·2025大罷免大成功" + address;
+    const signature = "\n\n · 罷免文宣產生器·下架不適任立委·2025大罷免大成功 " + address;
     const fullText = output + signature;
     const encoded = encodeURIComponent(fullText);
 
